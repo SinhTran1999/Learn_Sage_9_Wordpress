@@ -15,12 +15,21 @@
  */
 
 get_header();
+function dd($data){
+	echo '<pre>';
+		var_dump($data);
+	echo '</pre>';
+	die();
+}
 ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
 		<?php
+			$wp_user = wp_get_current_user();
+			
+			dd($wp_user->has_cap('edit_users'));
 		if ( have_posts() ) {
 
 			// Load posts loop.
